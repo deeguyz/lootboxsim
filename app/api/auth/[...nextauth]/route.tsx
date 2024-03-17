@@ -1,8 +1,8 @@
-import NextAuth from 'next-auth';
+import NextAuth, { type NextAuthOptions } from 'next-auth';
 // import EmailProvider from 'next-auth/providers/email';
 import GoogleProvider from 'next-auth/providers/google';
 
-const handler = NextAuth({
+export const authOptions: NextAuthOptions = {
   providers: [
     // EmailProvider({
 
@@ -29,6 +29,8 @@ const handler = NextAuth({
   session: {
     strategy: 'jwt',
   },
-});
+};
+
+export const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };
