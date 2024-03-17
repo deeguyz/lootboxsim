@@ -1,11 +1,13 @@
 CREATE TABLE test(
     id int PRIMARY KEY,
-    username TEXT
+    username TEXT,
+    email TEXT,
+    pass TEXT
 );
 
-INSERT INTO test(id, username) VALUES
-(56, 'testuser1'),
-(613, 'testuser2'),
-(273, 'testuser3'),
-(534, 'testuser4'),
-(72, 'testuser5');
+INSERT INTO test(id, username, email, pass) VALUES
+(56, 'user1','testuser1@example.com','1'),
+(613, 'user2','testuser2@example.com','2'),
+(273, 'user3','testuser3@example.com','3'),
+(534, 'user4','testuser4@example.com','4'),
+(72, 'user5','testuser5@example.com','5');
