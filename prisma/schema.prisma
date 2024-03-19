@@ -7,9 +7,42 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model test {
-  id       Int     @id
-  username String?
-  email    String?
-  pass     String?
+model users {
+  id            String      @id @db.Uuid
+  username      String?     @db.VarChar(32)
+  email         String?     @db.VarChar(255)
+  password_hash String?     @db.Char(64)
+  inventory     inventory[]
+}
+
+model banner_dates {
+  id                Int       @id @default(autoincrement())
+  banner_start_date DateTime? @db.Timestamp(6)
+  banner_end_date   DateTime? @db.Timestamp(6)
+}
+
+model banners {
+  id      String  @id @db.Uuid
+  item_id String? @db.Uuid
+  items   items?  @relation(fields: [item_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model inventory {
+  id       String  @id @db.Uuid
+  user_id  String? @db.Uuid
+  item_id  String? @db.Uuid
+  quantity Int?
+  items    items?  @relation(fields: [item_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  users    users?  @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model items {
+  id          String      @id @db.Uuid
+  item_name   String?     @db.VarChar(32)
+  rarity      Int?
+  item_weight Int?
+  image_url   String?
+  banners     banners[]
+  inventory   inventory[]
 }

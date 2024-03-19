@@ -14,18 +14,23 @@ export const authOptions: NextAuthOptions = {
     CredentialsProvider({
       name: 'Credentials',
       async authorize(credentials, req): Promise<any> {
-        const user = await prisma.test.findFirst({
+        const user = await prisma.users.findFirst({
           /* add function to get user */
           where: {
-            email: credentials.email,
-            pass: credentials.password,
+            email: credentials?.email,
+            password_hash: credentials?.password,
           },
         });
 
         console.log(user);
         if (user) {
+          const userData = {
+            id: user.id,
+            email: user.email,
+            name: user.username,
+          };
           console.log('PASSED');
-          return { ...user, username: user.username };
+          return userData;
         } else {
           console.log('FAILED');
           return null;
@@ -33,7 +38,7 @@ export const authOptions: NextAuthOptions = {
       },
       credentials: {
         email: { label: 'Email', type: 'email', placeholder: 'name@example.com' },
-        password: { label: 'Password', type: 'password' },
+        password_hash: { label: 'Password', type: 'password' },
       },
     }),
     GoogleProvider({
@@ -43,12 +48,10 @@ export const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     session: async ({ session, token, user }) => {
-      if (user && user.username) {
-        session.user = {
-          ...session.user,
-          name: user.username,
-        };
+      if (user) {
+        session.user = { ...session.user, ...user };
       }
+
       if (session?.user) {
         session.user.id = token.sub;
       }

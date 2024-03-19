@@ -13,7 +13,7 @@ const SignInButton = ({ type }: SignInButtonProps) => {
     redirect('/dashboard');
   }
   return (
-    <button className="text-white" onClick={() => signIn(type.toLowerCase())}>
+    <button className="text-black" onClick={() => signIn(type.toLowerCase())}>
       Sign In With {type}
     </button>
   );

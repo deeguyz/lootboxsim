@@ -3,7 +3,6 @@
 import { signIn } from 'next-auth/react';
 import Image from 'next/image';
 import SignInButton from '../../components/auth/SignInButton';
-import { redirect } from 'next/navigation';
 
 const Login = () => {
   const handleSignIn = async (e) => {
