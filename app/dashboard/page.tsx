@@ -8,7 +8,7 @@ const Dashboard = async () => {
   console.log(data);
   return (
     <div>
-      <div className="text-black">{data?.user?.name || 'User'}</div>
+      <div className="text-white">{data?.user?.name || 'User'}</div>
       <SignOutButton />
 
       <div className="flex justify-center items-center h-screen">

@@ -43,7 +43,7 @@ function PullItem() {
   };
 
   return (
-    <div>
+    <div className="text-white">
       <div className="flex justify-center space-x-4">
         <button onClick={handleClick}>Pull 1 Item</button>
         <button onClick={handleClick10}>Pull 10 Items</button>
