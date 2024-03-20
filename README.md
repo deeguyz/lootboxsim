@@ -1,10 +1,11 @@
 Run commands
+
 1. npm run dev
 2. if image not yet made:
-  a. docker compose up
+   a. docker compose up
 3. docker compose up -d --build
 4. docker exec -it database-db-1 bash
-  a. psql -U admin -d lootsim
+   a. psql -U admin -d lootboxsim
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 

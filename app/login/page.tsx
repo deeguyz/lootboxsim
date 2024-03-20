@@ -1,7 +1,29 @@
+'use client';
+
+import { signIn } from 'next-auth/react';
 import Image from 'next/image';
 import SignInButton from '../../components/auth/SignInButton';
 
 const Login = () => {
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    try {
+      const result = await signIn('credentials', { email, password });
+      if (result?.error) {
+        // Authentication failed
+        console.error('Login failed:', result.error);
+        // Handle login failure, such as displaying an error message to the user
+      }
+      // If no error, signIn succeeded, NextAuth will handle the redirect
+    } catch (error) {
+      console.error('Login failed:', error);
+      // Handle login failure, such as displaying an error message to the user
+    }
+  };
+
   return (
     <div>
       <section>
@@ -21,7 +43,7 @@ const Login = () => {
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Sign in to your account
               </h1>
-              <form className="space-y-4 md:space-y-6" action="#">
+              <form className="space-y-4 md:space-y-6" action="#" onSubmit={handleSignIn}>
                 <div>
                   <label htmlFor="email" className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
                     Your email
