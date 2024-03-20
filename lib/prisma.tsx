@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
-let prisma;
+
+let prisma: PrismaClient;
 
 if (typeof window === 'undefined') {
   if (process.env.NODE_ENV === 'production') {
@@ -13,4 +14,4 @@ if (typeof window === 'undefined') {
   }
 }
 
-export default prisma;
+export default prisma!;
