@@ -15,6 +15,13 @@ model users {
   inventory     inventory[]
 }
 
+model inventory {
+  id              String            @id @db.Uuid
+  user_id         String?           @db.Uuid
+  users           users?            @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  inventory_items inventory_items[]
+}
+
 model banner_dates {
   id                Int       @id @default(autoincrement())
   banner_start_date DateTime? @db.Timestamp(6)
@@ -27,22 +34,23 @@ model banners {
   items   items?  @relation(fields: [item_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
-model inventory {
-  id       String  @id @db.Uuid
-  user_id  String? @db.Uuid
-  item_id  String? @db.Uuid
-  quantity Int?
-  items    items?  @relation(fields: [item_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  users    users?  @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+model inventory_items {
+  inventory_id String    @db.Uuid
+  item_id      String    @db.Uuid
+  quantity     Int?
+  inventory    inventory @relation(fields: [inventory_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  items        items     @relation(fields: [item_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([inventory_id, item_id])
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model items {
-  id          String      @id @db.Uuid
-  item_name   String?     @db.VarChar(32)
-  rarity      Int?
-  item_weight Int?
-  image_url   String?
-  banners     banners[]
-  inventory   inventory[]
+  id              String            @id @db.Uuid
+  item_name       String?           @db.VarChar(32)
+  rarity          Int?
+  item_weight     Int?
+  image_url       String?
+  banners         banners[]
+  inventory_items inventory_items[]
 }

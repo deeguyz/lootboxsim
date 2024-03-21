@@ -19,8 +19,6 @@ export const authOptions: NextAuthOptions = {
             password_hash: credentials?.password,
           },
         });
-
-        console.log(user);
         if (user) {
           const userData = {
             id: user.id,

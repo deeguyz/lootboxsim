@@ -9,7 +9,6 @@ type SignInButtonProps = {
 const SignInButton = ({ type }: SignInButtonProps) => {
   const { data: session } = useSession();
   if (session && session.user) {
-    console.log(session);
     redirect('/dashboard');
   }
   return (

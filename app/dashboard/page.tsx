@@ -1,14 +1,17 @@
+import Link from 'next/link';
 import { getServerSession } from 'next-auth';
 import SignOutButton from '../../components/auth/SignOutButton';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import PullItem from '../../components/items/PullItem';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 
 const Dashboard = async () => {
   const data = await getServerSession(authOptions);
-  console.log(data);
   return (
-    <div>
-      <div className="text-white">{data?.user?.name || 'User'}</div>
+    <div className="text-white">
+      <div>{data?.user?.name || 'User'}</div>
+      <div>
+        <Link href="/inventory">Inventory</Link>
+      </div>
       <SignOutButton />
 
       <div className="flex justify-center items-center h-screen">

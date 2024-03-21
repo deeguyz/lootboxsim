@@ -14,7 +14,7 @@ function PullItem() {
 
   const handleClick = async () => {
     try {
-      const res = await fetch('/api/randomitem', { method: 'GET' });
+      const res = await fetch('/api/randomitem', { method: 'POST' });
       console.log('FETCH SUCCESS');
       if (!res.ok) {
         throw new Error('Failed to fetch data');
