@@ -14,7 +14,7 @@ const Dashboard = async () => {
       </div>
       <SignOutButton />
 
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex justify-center h-screen items-center">
         <PullItem />
       </div>
     </div>

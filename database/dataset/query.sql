@@ -42,9 +42,9 @@ INSERT INTO users (id, username, email, password_hash) VALUES
 ('2ae5723e-b91a-4325-bf7d-8f27473564e4', 'user3', 'user3@example.com', '3');
 
 INSERT INTO items (id, item_name, rarity, item_weight, image_url) VALUES
-('c3a1f2c2-6f47-4c32-96fc-27bbf956daba', 'item1', 2, 10, 'image_url_1'),
-('7812c73e-7d94-4b42-86d2-9bc1470b76f1', 'item2', 3, 5, 'image_url_2'),
-('c4e8a1f1-914e-43d0-b116-b7c85d6c6a69', 'item3', 1, 15, 'image_url_3');
+('c4e8a1f1-914e-43d0-b116-b7c85d6c6a69', 'squirtle', 1, 15, '/pokemon/squirtle.jpg'),
+('c3a1f2c2-6f47-4c32-96fc-27bbf956daba', 'wartortle', 2, 10, '/pokemon/wartortle.jpg'),
+('7812c73e-7d94-4b42-86d2-9bc1470b76f1', 'blastoise', 3, 5, '/pokemon/blastoise.jpg');
 
 INSERT INTO inventory (id, user_id) VALUES
 ('dbeff26d-6a44-4959-8fc8-b0c4652068ff', 'a6b10e9e-65ac-4a51-a184-47c73a06a9f1'),

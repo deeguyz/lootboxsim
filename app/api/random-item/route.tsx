@@ -36,6 +36,7 @@ export async function POST(req: NextRequest) {
         WHERE users.id = ${data.user.id}::uuid`;
 
       const inventoryId = inventoryIdResult[0].id;
+
       const updateInventory = await prisma.$queryRaw`
         INSERT INTO inventory_items (inventory_id, item_id, quantity)
         VALUES (${inventoryId}::uuid, ${selectedItem.id}::uuid, 1)
