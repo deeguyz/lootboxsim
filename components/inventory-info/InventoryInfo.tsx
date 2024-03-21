@@ -25,15 +25,22 @@ const InventoryInfo = () => {
     getData();
   }, []);
   return (
-    <div>
-      <div>Inventory</div>
+    <div className="p-10">
       {data ? (
-        <div>
+        <div className="grid grid-cols-8 justify-center">
           {data.map((item: InventoryItem, index: number) => {
             return (
-              <div key={index}>
-                {item.item_id}: {item.quantity}
-                <Image src={item.image_url} width={200} height={200} alt={item.item_name} />
+              <div className="relative mx-5" key={index}>
+                <Image
+                  className="relative aspect-[200/200] rounded-lg"
+                  width={200}
+                  src={item.image_url}
+                  height={200}
+                  alt={item.item_name}
+                />
+                <div className="absolute right-0 top-0 bg-black rounded-tr-md rounded-bl-md px-3 py-2">
+                  {item.quantity}
+                </div>
               </div>
             );
           })}
