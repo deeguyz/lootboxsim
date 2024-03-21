@@ -36,3 +36,4 @@ database/.env
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+tsconfig.json
