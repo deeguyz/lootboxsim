@@ -25,10 +25,8 @@ export const authOptions: NextAuthOptions = {
             email: user.email,
             name: user.username,
           };
-          console.log('PASSED');
           return userData;
         } else {
-          console.log('FAILED');
           return null;
         }
       },

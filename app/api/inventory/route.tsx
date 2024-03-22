@@ -16,7 +16,6 @@ export async function GET(req: NextRequest) {
         INNER JOIN items ON items.id = inventory_items.item_id
         WHERE users.id = ${data?.user.id}::uuid
     `;
-    console.log('sql query', result);
     if (result) {
       return NextResponse.json(result);
     }

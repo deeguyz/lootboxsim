@@ -19,7 +19,7 @@ const InventoryInfo = () => {
         setData(response);
       } catch (error) {
         const myErr = error instanceof Error ? error : new Error();
-        console.log(myErr);
+        throw myErr;
       }
     };
     getData();

@@ -17,16 +17,17 @@ function PullItem() {
   useEffect(() => {
     const saveToInventory = async () => {
       try {
-        const res = await fetch('/api/random-item-10', {
+        const res = await fetch('/api/save-to-inventory', {
           method: 'POST',
           headers: {
             'Content-type': 'application/json',
           },
           body: JSON.stringify({ data: items }),
         });
-        const data = await res.json();
+        await res.json();
       } catch (error) {
-        console.log('random-item-10', error);
+        const myErr = error instanceof Error ? error : new Error();
+        throw myErr;
       }
     };
     saveToInventory();
@@ -34,7 +35,7 @@ function PullItem() {
 
   const handleClick = async () => {
     try {
-      const res = await fetch('/api/random-item', { method: 'POST' });
+      const res = await fetch('/api/random-item', { method: 'GET' });
       const data = await res.json();
       setItems([data]);
     } catch (err) {
@@ -60,6 +61,8 @@ function PullItem() {
         return 'border-yellow-400';
       case 3:
         return 'border-orange-600';
+      case 4:
+        return 'border-red-800';
       default:
         return 'border-blue-400';
     }
