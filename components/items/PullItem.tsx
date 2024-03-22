@@ -81,9 +81,13 @@ function PullItem() {
           </div>
         ))}
       </div>
-      <div className="flex justify-center space-x-4">
-        <button onClick={handleClick}>Pull 1 Item</button>
-        <button onClick={handleClick10}>Pull 10 Items</button>
+      <div className="mt-3 flex justify-center space-x-4">
+        <button className="w-60 rounded-lg border-solid bg-white p-3 text-black" onClick={handleClick}>
+          Pull 1 Item
+        </button>
+        <button className="w-60 rounded-lg border-solid bg-white p-3 text-black" onClick={handleClick10}>
+          Pull 10 Items
+        </button>
       </div>
     </div>
   );

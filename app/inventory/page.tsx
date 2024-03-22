@@ -7,7 +7,7 @@ const Inventory = async () => {
   const data = await getServerSession(authOptions);
   return (
     <div className="text-white">
-      <div className="my-5 text-center text-4xl">Inventory</div>
+      <div className="mt-5 text-center text-4xl">Inventory</div>
       <InventoryInfo />
     </div>
   );

@@ -31,7 +31,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="sticky mb-10 flex h-20 w-full items-center justify-between bg-black px-4 text-white">
+    <div className="sticky mb-10 flex h-16 w-full items-center justify-between bg-black px-4 text-white">
       <div>
         <h1 className="px-4">
           <Link href="/">LootSim</Link>
