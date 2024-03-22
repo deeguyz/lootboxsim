@@ -44,7 +44,7 @@ INSERT INTO users (id, username, email, password_hash) VALUES
 INSERT INTO items (id, item_name, rarity, item_weight, image_url) VALUES
 ('c4e8a1f1-914e-43d0-b116-b7c85d6c6a69', 'Squirtle', 1, 70, '/pokemon/squirtle.jpg'),
 ('c3a1f2c2-6f47-4c32-96fc-27bbf956daba', 'Wartortle', 2, 35, '/pokemon/wartortle.jpg'),
-('7812c73e-7d94-4b42-86d2-9bc1470b76f1', 'Blastoise', 3, 5, '/pokemon/blastoise.jpg');
+('7812c73e-7d94-4b42-86d2-9bc1470b76f1', 'Blastoise', 3, 5, '/pokemon/blastoise.jpg'),
 ('e4f4h4i4-8i9o-9p41-4b42-86d2-9bc1470b76f1', 'Mega Blastoise', 4, 1, '/pokemon/blastoise-mega.jpg'),
 ('f5g5j5k5-2l3m-4n51-4b42-86d2-9bc1470b76f1', 'Charmander', 1, 70, '/pokemon/charmander.jpg'),
 ('o6p6q6r6-8s9t-0u71-4b42-86d2-9bc1470b76f1', 'Charmeleon', 2, 35, '/pokemon/charmeleon.jpg'),
