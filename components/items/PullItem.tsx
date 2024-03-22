@@ -28,7 +28,6 @@ const rarityColor = (rarity: number) => {
 
 function PullItem() {
   const [items, setItems] = useState<Item[]>([]);
-
   useEffect(() => {
     const saveToInventory = async () => {
       try {

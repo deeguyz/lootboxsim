@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
-import prisma from '../../../lib/prisma';
-import { authOptions } from '../auth/[...nextauth]/route';
+import prisma from '@/lib/prisma';
+import { authOptions } from '@/utilities/authOptions';
 
 export async function GET(req: NextRequest) {
   const data = await getServerSession(authOptions);
@@ -14,7 +14,7 @@ export async function GET(req: NextRequest) {
         INNER JOIN inventory ON inventory.id = inventory_items.inventory_id
         INNER JOIN users ON users.id = inventory.user_id
         INNER JOIN items ON items.id = inventory_items.item_id
-        WHERE users.id = ${data?.user.id}::uuid
+        WHERE users.id = ${data?.user?.id}::uuid
     `;
     if (result) {
       return NextResponse.json(result);

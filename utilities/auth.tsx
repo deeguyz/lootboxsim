@@ -1,5 +1,5 @@
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from './authOptions';
 
 export const isAuthenticated = async () => {
   const data = await getServerSession(authOptions);
