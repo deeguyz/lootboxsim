@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import { rarityColor } from '@/utilities/utilities';
+// import { rarityColor } from '@/utilities/utilities';
 interface Item {
   item_name: string;
   rarity: number;
@@ -10,6 +10,21 @@ interface Item {
   image_url: string;
   // Add more properties as needed
 }
+
+const rarityColor = (rarity: number) => {
+  switch (rarity) {
+    case 1:
+      return 'border-blue-400';
+    case 2:
+      return 'border-yellow-400';
+    case 3:
+      return 'border-orange-600';
+    case 4:
+      return 'border-red-800';
+    default:
+      return 'border-blue-400';
+  }
+};
 
 function PullItem() {
   const [items, setItems] = useState<Item[]>([]);

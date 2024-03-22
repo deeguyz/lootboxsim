@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import { rarityColor } from '@/utilities/utilities';
+// import { rarityColor } from '@/utilities/utilities';
 
 interface InventoryItem {
   item_name: string;
@@ -10,6 +10,21 @@ interface InventoryItem {
   image_url: string;
   rarity: number;
 }
+
+const rarityColor = (rarity: number) => {
+  switch (rarity) {
+    case 1:
+      return 'border-blue-400';
+    case 2:
+      return 'border-yellow-400';
+    case 3:
+      return 'border-orange-600';
+    case 4:
+      return 'border-red-800';
+    default:
+      return 'border-blue-400';
+  }
+};
 
 const InventoryInfo = () => {
   const [data, setData] = useState<InventoryItem[]>([]);
@@ -34,7 +49,7 @@ const InventoryInfo = () => {
             return (
               <div className="relative mx-5" key={index}>
                 <Image
-                  className={`aspect-[200/200] rounded-lg border-4 border-solid border-blue-400 ${rarityColor(item.rarity)}`}
+                  className={`aspect-[200/200] rounded-lg border-4 border-solid ${rarityColor(item.rarity)}`}
                   width={200}
                   src={item.image_url}
                   height={200}
