@@ -27,7 +27,7 @@ const InventoryInfo = () => {
   return (
     <div className="p-10">
       {data ? (
-        <div className="grid grid-cols-8 justify-center">
+        <div className="flex flex-wrap justify-center gap-14">
           {data.map((item: InventoryItem, index: number) => {
             return (
               <div className="relative mx-5" key={index}>
@@ -38,7 +38,7 @@ const InventoryInfo = () => {
                   height={200}
                   alt={item.item_name}
                 />
-                <div className="absolute right-0 top-0 bg-black rounded-tr-md rounded-bl-md px-3 py-2">
+                <div className="absolute right-0 top-0 rounded-bl-md rounded-tr-md bg-black px-3 py-2">
                   {item.quantity}
                 </div>
               </div>
