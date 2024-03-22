@@ -1,12 +1,14 @@
 'use client';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
+import { rarityColor } from '@/utilities/utilities';
 
 interface InventoryItem {
   item_name: string;
   item_id: string;
   quantity: number;
   image_url: string;
+  rarity: number;
 }
 
 const InventoryInfo = () => {
@@ -32,7 +34,7 @@ const InventoryInfo = () => {
             return (
               <div className="relative mx-5" key={index}>
                 <Image
-                  className="relative aspect-[200/200] rounded-lg"
+                  className={`aspect-[200/200] rounded-lg border-4 border-solid border-blue-400 ${rarityColor(item.rarity)}`}
                   width={200}
                   src={item.image_url}
                   height={200}

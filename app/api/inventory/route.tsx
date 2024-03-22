@@ -9,7 +9,7 @@ export async function GET(req: NextRequest) {
   try {
     // Fetch all items from the database (cache this later on but for now just get it working)
     const result = await prisma.$queryRaw`
-        SELECT item_name, item_id, quantity, items.image_url
+        SELECT item_name, item_id, quantity, items.image_url, items.rarity
         FROM inventory_items
         INNER JOIN inventory ON inventory.id = inventory_items.inventory_id
         INNER JOIN users ON users.id = inventory.user_id
